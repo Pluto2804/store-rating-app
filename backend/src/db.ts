@@ -9,4 +9,10 @@ export const pool = new Pool({
     user: config.db.user,
     password: config.db.password,
     database: config.db.name,
+
+    ssl: config.db.host === 'localhost'
+        ? false
+        : {
+            rejectUnauthorized: false,
+        },
 })
